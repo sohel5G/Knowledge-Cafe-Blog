@@ -1,10 +1,13 @@
 import './App.css'
+import { Blogs } from './components/blogs/Blogs'
+import { Header } from './components/header/Header'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-4xl mx-auto text-center'>Hello World</h1>
+      <Header />
+      <Blogs />
     </>
   )
 }
