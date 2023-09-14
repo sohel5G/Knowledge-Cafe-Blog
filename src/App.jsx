@@ -14,9 +14,12 @@ function App() {
     setBookMarks(newBookMarks)
   }
 
-  const handleMarkAsRead = time => {
+  const handleMarkAsRead = (time, id) => {
     const newReadingTime = readingTime + time;
     setReadingTime(newReadingTime);
+
+    const remainingBookMarks = bookMarks.filter(elment=>elment.id !== id);
+    setBookMarks(remainingBookMarks);
   }
 
   return (
@@ -29,11 +32,11 @@ function App() {
       </header>
 
       <main className='bg-slate-100' >
-        <div className='max-w-6xl mx-auto px-5 flex py-12 gap-10'>
-          <section className='w-2/3'>
+        <div className='max-w-6xl mx-auto px-5 md:flex py-12 gap-10'>
+          <section className='md:w-2/3'>
             <Blogs handleBookMarks={handleBookMarks} handleMarkAsRead={handleMarkAsRead} />
           </section>
-          <aside className='w-1/3'>
+          <aside className='md:w-1/3'>
             <Sidebar bookMarks={bookMarks} readingTime={readingTime} />
           </aside>
         </div>

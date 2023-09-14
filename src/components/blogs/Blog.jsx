@@ -3,7 +3,7 @@ import { BsBookmarks } from 'react-icons/bs';
 
 function Blog({ blog, handleBookMarks, handleMarkAsRead }) {
 
-    const { cover, title, author_img, author, posted_date, reading_time, hashtags } = blog;
+    const { cover, title, author_img, author, posted_date, reading_time, hashtags, id } = blog;
 
     return (
         <article className='mb-6 shadow rounded'>
@@ -27,10 +27,10 @@ function Blog({ blog, handleBookMarks, handleMarkAsRead }) {
                 <h1 className="text-2xl font-bold my-3 leading-10"> {title} </h1>
                 <p>
                     {
-                        hashtags.map((element, index) => <a key={index} className='pr-3 hover:text-red-600 text-lg text-gray-600' href='#'> #{element} </a> )
+                        hashtags.map((element, index) => <a key={index} className='pr-3 hover:text-red-600 text-lg text-gray-600' href='#'> #{element} </a>)
                     }
                 </p>
-                <button className='text-[#6047EC] mt-5 font-semibold' onClick={() => handleMarkAsRead(reading_time)}>Mark as read</button>
+                <button className='text-[#6047EC] mt-5 font-semibold' onClick={() => handleMarkAsRead(reading_time, id)}>Mark as read</button>
             </div>
         </article>
     )
